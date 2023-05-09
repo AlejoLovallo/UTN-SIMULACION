@@ -3,7 +3,7 @@
 #include "rutinas.h"
 
 int I = 0;
-float TF = 1000.0;
+float TF = 1.0;
 
 
 void codicionesIniciales(int *NCORTES, int *NTINTURA){
