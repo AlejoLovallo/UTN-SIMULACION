@@ -22,6 +22,6 @@ void rutinaDeCorte(float T,float TCCORTES[], float TCTINTURA[],int NCORTES,int N
 void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES,int *NCOR,int *NTIN, float STOCORTES[], float* STECORTE,float TCCOR[], float TCTIN[], float *TPLL);
 void rutinaEstadisticasCorte(float T, int NCOR,float STOCOR[],float STEC, int NTCOR);
 void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int NTTIN);
-
+int seleccionarPeluquero();
 
 #endif /* RUTINAS_S_H */

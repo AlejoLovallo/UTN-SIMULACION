@@ -8,7 +8,7 @@ void inicializarArray(float arr[], int tam) {
 
 float generarIntervaloDeArrivos(){
     float f = generarRandom();
-    if (f = 1) {
+    if (f == 1) {
         f = generarRandom();
     }
 
@@ -149,3 +149,38 @@ void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int N
     printf("PTET %.2f\n", PTET);
 }
 **/
+
+int seleccionarPeluquero(){
+
+    float r = generarRandom();
+    int i;
+
+    if(r < 0.1){
+        i = 1;
+    }else if (r > 0.1 && r < 0.2){
+        i = 2;
+    }else if (r > 0.2 && r < 0.3){
+        i = 3;
+    }else if (r > 0.3 && r < 0.4){
+        i = 4;
+    }else if (r > 0.4 && r < 0.5){
+        i = 5;
+    }else if (r > 0.5 && r < 0.6){
+        i = 6;
+    }else if (r > 0.65 && r < 0.7){
+        i = 7;
+    }else if (r > 0.7 && r < 0.75){
+        i = 8;
+    }else if (r > 0.75 && r < 0.8){
+        i = 9;
+    }else if (r > 0.8 && r < 0.85){
+        i = 10;
+    }else if (r > 0.85 && r < 0.9){
+        i = 11;
+    }else if (r > 0.9 && r < 0.95){
+        i = 12;
+    }else{
+        i = 13;
+    }
+    return i;
+}
