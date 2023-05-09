@@ -1,6 +1,11 @@
 #ifndef RUTINAS_DOT_H
 #define RUTINAS_DOT_H
 
+#include <math.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 extern int I;
 extern float TF;
 

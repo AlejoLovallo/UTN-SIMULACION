@@ -3,7 +3,7 @@
 #include "rutinas.h"
 
 int I = 0;
-float TF = 5000.0;
+float TF = 1000.0;
 
 
 void codicionesIniciales(int *NCORTES, int *NTINTURA){
@@ -32,6 +32,7 @@ int main(int argc,char **argv){
     int NCOR = atoi(argv[1]);
     int NTIN = atoi(argv[2]);
 
+    srand(time(NULL));
     codicionesIniciales(&NCOR,&NTIN);
     return 0;
 }

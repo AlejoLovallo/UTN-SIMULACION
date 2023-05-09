@@ -1,7 +1,4 @@
 #include "rutinas.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
 void inicializarArray(float arr[], int tam) {
     for (int i = tam ; i <= tam ; i++) {
@@ -15,8 +12,7 @@ float generarIntervaloDeArrivos(){
 }
 
 float generarRandom(){
-    double a =  ((double) rand()) / ((double) RAND_MAX);
-    printf("SAsaSasA %f\n",a);
+    double a = ((double) rand()) / ((double) RAND_MAX);
     return (float) a;
 }
 
@@ -91,14 +87,15 @@ void rutinaDeCorte(float T,float TCCORTES[], float TCTINTURA[],int NCORTES,int N
 }
 
 void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES,int *NCOR,int *NTIN, float STOCORTES[], float* STECORTE,float TCCOR[], float TCTIN[], float *TPLL) {
+    printf("\nTIMEMPO: %f\n", *TIEMPO);
     if (*TIEMPO < TF) {
         printf("RUTINA PRINCIPAL\n");
         printf("ACA ENTRARIA DE NUEVO A LA RUTINA PRINCIPAL\n");
-        //rutinaPrincipal(NCOR, NTIN, TIEMPO, TPLL,TCCOR,TCTIN);
+        rutinaPrincipal(NCOR, NTIN, TIEMPO, TPLL,TCCOR,TCTIN);
     } else {
         printf("RUTINA DE ESTADISTICAS\n");
         printf("ACA ENTRARIA A LA RUTINA DE ESTADISTICAS DE CORTE\n");
-        //rutinaEstadisticasCorte(*TIEMPO, *NCOR, STOCORTES, *STECORTE, NUMERO_TOTAL_DE_CORTES);
+        rutinaEstadisticasCorte(*TIEMPO, *NCOR, STOCORTES, *STECORTE, NUMERO_TOTAL_DE_CORTES);
     }
 }
 
@@ -106,7 +103,7 @@ void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES,int *NCOR
 void rutinaDeTintura(){}
 **/
 
-/**
+
 void rutinaEstadisticasCorte(float T, int NCOR,float STOCOR[],float STEC, int NTCOR) {
     float PTOCOR[NCOR];
     inicializarArray(PTOCOR, NCOR);
@@ -114,17 +111,17 @@ void rutinaEstadisticasCorte(float T, int NCOR,float STOCOR[],float STEC, int NT
 
     for (int I = 1 ; I <= NCOR ; I++) {
         PTOCOR[I] = (STOCOR[I] * 100) / T;
-        printf("PTOCOR(%d) = 2.%f\n", I,PTOCOR[I]);
+        printf("PTOCOR(%d) = %.2f\n", I,PTOCOR[I]);
     }
 
 
     float PTEC = STEC/NTCOR;
-    printf("PTEC 2.%f\n", PTEC);
+    printf("PTEC %.2f\n", PTEC);
 
     //float PP10 = (N10 * 100) / (NTCOR + NTTIN);
-    //printf("PP10 2.%f\n", PP10);
+    //printf("PP10 %.2f\n", PP10);
 }
-**/
+
 
 /**
 void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int NTTIN) {
@@ -137,6 +134,6 @@ void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int N
     }
 
     float PTET = STET/NTTIN;
-    printf("PTET 2.%f\n", PTET);
+    printf("PTET %.2f\n", PTET);
 }
 **/
