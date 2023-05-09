@@ -1,6 +1,9 @@
 #ifndef RUTINAS_DOT_H
 #define RUTINAS_DOT_H
 
+extern int I;
+extern float TF;
+
 float generarIntervaloDeArrivos();
 float generarRandom();
 float generarTAdeCorte();

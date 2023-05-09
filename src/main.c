@@ -3,13 +3,14 @@
 #include "rutinas.h"
 
 int I = 0;
-float TF = 5000;
+float TF = 5000.0;
+
 
 void codicionesIniciales(int *NCORTES, int *NTINTURA){
     printf("RUTINA PRINCIPAL\n"); 
     /*** DEFINICION DE CONDICIONES INICIALES*/
-    float *T_INICIAL = 0;
-    float *T_PROXIMA_LLEGADA = 0;
+    float T_INICIAL = 0;
+    float T_PROXIMA_LLEGADA = 0;
     int ncort = *NCORTES;
     int ntint = *NTINTURA;
 
@@ -19,7 +20,7 @@ void codicionesIniciales(int *NCORTES, int *NTINTURA){
     inicializarArray(TCCOR,*NCORTES);
     inicializarArray(TCTIN,*NTINTURA);
 
-    rutinaPrincipal(NCORTES,NTINTURA,T_INICIAL,T_PROXIMA_LLEGADA,TCCOR,TCTIN);
+    rutinaPrincipal(NCORTES,NTINTURA,&T_INICIAL,&T_PROXIMA_LLEGADA,TCCOR,TCTIN);
 }  
 
 
