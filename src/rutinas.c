@@ -1,13 +1,23 @@
 #include "rutinas.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-int generarIntervaloDeAtencion(){
-    return 0;
+void inicializarArray(float arr[], int tam) {
+    for (int i = tam ; i <= tam ; i++) {
+        arr[i] = 0.f;
+    }
+}
+
+float generarIntervaloDeArrivos(){
+    return generarRandom();
 }
 
 float generarRandom(){
-    return (float) rand() / RAND_MAX;
+    printf("ME METO A GENERAR RANDOM\n");
+    float a =  (float) rand() / RAND_MAX;
+    printf("%f\n",a);
+    return a;
 }
 
 float generarTAdeCorte() {
@@ -20,42 +30,120 @@ float generarTAdeColor() {
     return 10.648 / pow( ( 1 / pow(R,1.29749) ) - 1, 0.040813);
 }
 
-/*int rutinaEleccionDePeluquero() {
-    float R = generarRandom();
-    if (R <= ) {
-
-    } else if (R <= ) {
-
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else if (R <= ) {
-        
-    } else {
-
-    }
-}
-
-int rutinaAtencionSinPreferenciaCorte() {
+int rutinaAtencionSinPreferenciaCorte(int NCOR,float TCCOR[]) {
     int I = 1;
     for (int J=1 ; J < NCOR ; J++) {
-        if (TC[I] > TC[J]) {
+        if (TCCOR[I] > TCCOR[J]) {
             I = J;
         }
     }
-}*/
+    return I;
+}
+
+void rutinaPrincipal(int *NCOR, int *NTIN, float* T, float* TPLL,float TCCORTES[], float TCTINTURA[]){
+    printf("LLEGA A RUTINA PPP\n");
+    float IA = generarIntervaloDeArrivos();
+    printf("SALE DEL IA\n");
+    printf("%f",IA);
+    *T = *TPLL;   
+    printf("PINCHA EN LA ASIGNACION\n");
+    *TPLL = *TPLL + IA;
+    printf("PINCHA EN LA SUMA");
+    printf("SALE DEL RANDOM\n");
+    float RANDOM = generarRandom();
+
+    printf("PASA LOS RANDOM SIN PROBLEMAS\n");
+    printf("%f",RANDOM);
+    printf("%f",IA);
+
+    if(RANDOM <= 1/*0.71*/){
+        printf("RUTINA DE ATENCION CORTE\n");
+        printf("ACA LLAMARIA A RUTINA DE CORTE\n");
+        //rutinaDeCorte(*T,TCCORTES,TCTINTURA,*NCOR,*NTIN,TPLL);
+    } else {
+        printf("RUTINA DE ATENCION TINTURA\n");
+    }
+}
+
+
+/**
+void rutinaDeCorte(float T,float TCCORTES[], float TCTINTURA[],int NCORTES,int NTINTURA,float *TPLLEGADA) {
+    float TACOR = generarTAdeCorte();
+    float RANDOM = generarRandom();
+    float STEC = 0;
+    float STOCOR[NCORTES];
+    //float STACOR[NCORTES];
+    int NTC = 0;
+
+    if(RANDOM > 1<=0.7){
+        printf("RUTINA DE ELECCIÓN DE PELUQUERO\n");
+        //I = rutinaEleccionDePeluquero();
+    } else {
+        printf("RUTINA DE ATENCIÓN SIN PREFERENCIA DE PELUQUERO\n");
+        I = rutinaAtencionSinPreferenciaCorte(NCORTES,TCCORTES);
+    }
+
+    if(T >= TCCORTES[I]) {
+        STOCOR[I] = STOCOR[I] + T - TCCORTES[I];
+        TCCORTES[I] = T + TACOR;
+    } else {
+        // TODO acá falta arrepentimiento
+        STEC = STEC + TCCORTES[I] - T;
+        TCCORTES[I] = TCCORTES[I] + TACOR;
+    }
+
+    NTC = NTC + 1;
+    //STACOR[I] = STACOR[I] + TACOR;
+
+    rutinaFinalizacionCorte(&T,NTC,&NCORTES,&NTINTURA,STOCOR,&STEC,TCCORTES,TCTINTURA,TPLLEGADA);
+}
+**/
+
+/**
+void rutinaDeTintura(){}
+
+void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES,int *NCOR,int *NTIN, float STOCORTES[], float* STECORTE,float TCCOR[], float TCTIN[], float *TPLL) {
+    if (*TIEMPO < TF) {
+        printf("RUTINA PRINCIPAL\n");
+        rutinaPrincipal(NCOR, NTIN, TIEMPO, TPLL,TCCOR,TCTIN);
+    } else {
+        printf("RUTINA DE ESTADISTICAS\n");
+        rutinaEstadisticasCorte(*TIEMPO, *NCOR, STOCORTES, *STECORTE, NUMERO_TOTAL_DE_CORTES);
+    }
+}
+**/
+
+/**
+void rutinaEstadisticasCorte(float T, int NCOR,float STOCOR[],float STEC, int NTCOR) {
+    float PTOCOR[NCOR];
+    inicializarArray(PTOCOR, NCOR);
+
+
+    for (int I = 1 ; I <= NCOR ; I++) {
+        PTOCOR[I] = (STOCOR[I] * 100) / T;
+        printf("PTOCOR(%d) = 2.%f\n", I,PTOCOR[I]);
+    }
+
+
+    float PTEC = STEC/NTCOR;
+    printf("PTEC 2.%f\n", PTEC);
+
+    //float PP10 = (N10 * 100) / (NTCOR + NTTIN);
+    //printf("PP10 2.%f\n", PP10);
+}
+**/
+
+/**
+void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int NTTIN) {
+    float PTOCOL[NTIN];
+    inicializarArray(PTOCOL, NTIN);
+
+    for (int I = 1 ; I <= NTIN ; I++) {
+        PTOCOL[I] = (STOCOL[I] * 100) / T;
+        printf("PTO(%d): %2.f\n",I,PTOCOL[I]);
+    }
+
+    float PTET = STET/NTTIN;
+    printf("PTET 2.%f\n", PTET);
+}
+**/
