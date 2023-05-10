@@ -8,7 +8,7 @@ void inicializarArray(float arr[], int tam)
     }
 }
 
-float generarIntervaloDeArrivos()
+float generarIntervaloDeArrivos(int dias)
 {
     float f = generarRandom();
     if (f == 1)
@@ -21,8 +21,14 @@ float generarIntervaloDeArrivos()
     // float g = -1.1141 * log(f);
     // f = fmax(-6.9266 * log(g), 0.0);
 
-    // f = -3.8133 * log(-1 * (-1 + f)); // Lun-Jue
-    f = -2.30771 * log(-1 * (-1 + f)); // Vie-Sab
+    if (dias == 1)
+    {
+        f = -3.8133 * log(-1 * (-1 + f)); // Lun-Jue
+    }
+    else
+    {
+        f = -2.30771 * log(-1 * (-1 + f)); // Vie-Sab
+    }
 
     return f;
 }
@@ -61,7 +67,8 @@ int rutinaAtencionSinPreferenciaCorte(int NCOR, float TCCOR[])
 void rutinaPrincipal(int *NCOR, int *NTIN, float *T, float *TPLL, float TCCORTES[], float TCTINTURA[])
 {
     printf("LLEGA A RUTINA PPP\n");
-    float IA = generarIntervaloDeArrivos();
+    int dias = 1;
+    float IA = generarIntervaloDeArrivos(dias);
     *T = *TPLL;
     *TPLL = *TPLL + IA;
     float RANDOM = generarRandom();

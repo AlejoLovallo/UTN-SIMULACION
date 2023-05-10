@@ -9,7 +9,7 @@
 extern int I;
 extern float TF;
 
-float generarIntervaloDeArrivos();
+float generarIntervaloDeArrivos(int dias);
 float generarRandom();
 float generarTAdeCorte();
 float generarTAdeColor();

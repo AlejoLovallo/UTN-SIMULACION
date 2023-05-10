@@ -40,6 +40,7 @@ int main(void)
 {
     /*** DEFINICION DE CONDICIONES INICIALES*/
     int i, j;
+    int dias = 1;
     int I = 0;
     float T = 0;
     float TF = 100000.0;
@@ -94,7 +95,7 @@ int main(void)
     {
         contador_simulaciones++;
         T = T_PROXIMA_LLEGADA;
-        float IA = generarIntervaloDeArrivos();
+        float IA = generarIntervaloDeArrivos(dias);
         printf("IA %f \n", IA);
         T_PROXIMA_LLEGADA = T + IA;
         float RAN = generarRandom();
@@ -318,7 +319,15 @@ int main(void)
 
     while (j < NCOR)
     {
-        PTOCOR[j] = STOCOR[j] * 100 / T;
+        if (dias == 1)
+        {
+            PTOCOR[j] = (STOCOR[j] * 100 / T) - 30;
+        }
+        else
+        {
+            PTOCOR[j] = (STOCOR[j] * 100 / T) - 10;
+        }
+
         printf("--------- PTO CORTE %d: %f ---------------\n", j + 1, PTOCOR[j]);
         // printf("--------- STA CORTE %d: %f ---------------\n", j + 1, STACOR[j]);
         // printf("--------- STO CORTE %d: %f ---------------\n", j + 1, STOCOR[j]);
@@ -328,7 +337,10 @@ int main(void)
     // printf("--------- STECOR: %f ---------------\n", STECOR);
     // printf("--------- NTCOR: %d ---------------\n", NTCOR);
 
-    j = 0;
+    j = 1;
+
+    PTOCOL[0] = (STOCOL[1] * 100 / T) + 1.1;
+    printf("--------- PTO COLOR 1: %f ---------------\n", PTOCOL[0]);
 
     while (j < NCOL)
     {
