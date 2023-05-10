@@ -1,2 +1,4 @@
 .DS_Store
 .vscode
+src/a.out.dSYM
+src/*.out.dSYM
