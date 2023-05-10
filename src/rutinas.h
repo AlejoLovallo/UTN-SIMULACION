@@ -17,11 +17,14 @@ int rutinaEleccionDePeluquero();
 int rutinaAtencionSinPreferenciaCorte(int NCOR, float TCCOR[]);
 void codicionesIniciales(int *NCORTES, int *NTINTURA);
 void inicializarArray(float arr[], int tam);
-void rutinaPrincipal(int *NCOR, int *NTIN, float* T, float* TPLL,float TCCORTES[], float TCTINTURA[]);
-void rutinaDeCorte(float T,float TCCORTES[], float TCTINTURA[],int NCORTES,int NTINTURA,float *TPLLEGADA);
-void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES,int *NCOR,int *NTIN, float STOCORTES[], float* STECORTE,float TCCOR[], float TCTIN[], float *TPLL);
-void rutinaEstadisticasCorte(float T, int NCOR,float STOCOR[],float STEC, int NTCOR);
-void rutinaEstadisticasTintura(float T,int NTIN, float STOCOL[],float STET,int NTTIN);
+void rutinaPrincipal(int *NCOR, int *NTIN, float *T, float *TPLL, float TCCORTES[], float TCTINTURA[]);
+void rutinaDeCorte(float T, float TCCORTES[], float TCTINTURA[], int NCORTES, int NTINTURA, float *TPLLEGADA);
+void rutinaFinalizacionCorte(float *TIEMPO, int NUMERO_TOTAL_DE_CORTES, int *NCOR, int *NTIN, float STOCORTES[], float *STECORTE, float TCCOR[], float TCTIN[], float *TPLL);
+void rutinaEstadisticasCorte(float T, int NCOR, float STOCOR[], float STEC, int NTCOR);
+void rutinaEstadisticasTintura(float T, int NTIN, float STOCOL[], float STET, int NTTIN);
 int seleccionarPeluquero();
+int seleccionarColorista();
+int buscarMayor();
+int buscarMenor();
 
 #endif /* RUTINAS_S_H */
