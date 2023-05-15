@@ -8,4 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+float generarValor();
+float generarRandom();
+void inicializarArray(int arr[], int tam);
+
 #endif
