@@ -4,11 +4,11 @@
 
 int main(void)
 {
-    int cantidadVeces = 50;
+    int cantidadVeces = 100;
     int corridas = 1;
     int valores[51];
 
-    inicializarArray(valores, cantidadVeces + 1);
+    inicializarArray(valores, 51);
 
     while (corridas <= cantidadVeces)
     {
