@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    int cantidadVeces = 100;
+    int cantidadVeces = 1000;
     int corridas = 1;
     int valores[51];
 
